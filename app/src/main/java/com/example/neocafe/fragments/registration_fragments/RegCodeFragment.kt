@@ -1,4 +1,4 @@
-package com.example.neocafe.fragments.login_fragments
+package com.example.neocafe.fragments.registration_fragments
 
 import android.app.Dialog
 import android.graphics.Color
@@ -10,17 +10,18 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.neocafe.R
-import com.example.neocafe.databinding.FragmentCodeLoginBinding
+import com.example.neocafe.databinding.FragmentRegCodeBinding
 
-class CodeLoginFragment : Fragment() {
+class RegCodeFragment : Fragment() {
 
-    private lateinit var binding: FragmentCodeLoginBinding
+    private lateinit var binding: FragmentRegCodeBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentCodeLoginBinding.inflate(inflater, container, false)
+        // Inflate the layout for this fragment
+        binding = FragmentRegCodeBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -30,13 +31,13 @@ class CodeLoginFragment : Fragment() {
     }
 
     private fun navigation() {
-        binding.btnReturnLoginNumber.setOnClickListener {
-            findNavController().navigate(R.id.action_codeLoginFragment_to_numbLoginFragment)
+        binding.btnReturnRegInfo.setOnClickListener {
+            findNavController().navigate(R.id.action_regCodeFragment_to_infoRegFragment)
         }
     }
 
     private fun callDialog() {
-        val dialogBinding = layoutInflater.inflate(R.layout.custom_dialog_finish_login, null)
+        val dialogBinding = layoutInflater.inflate(R.layout.custom_dialog_finish_reg, null)
 
         val myDialog = Dialog(requireContext())
         myDialog.setContentView(dialogBinding)

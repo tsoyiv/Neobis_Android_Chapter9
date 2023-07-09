@@ -1,61 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/imageback"
-    tools:context=".fragments.login_fragments.NumbLoginFragment">
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="136dp"
-        android:layout_marginBottom="60dp"
-        android:fontFamily="@font/roboto"
-        android:text="Вход"
-        android:textColor="@color/white"
-        android:textSize="34sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/editText_login_number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/editText_login_number"
-        android:layout_width="330dp"
-        android:layout_height="40dp"
-        android:background="@drawable/edit_text_rounded_background"
-        android:drawableStart="@drawable/edit_text_underline"
-        android:drawablePadding="8dp"
-        android:hint="+996 000 00 00 00"
-        android:inputType="numberDecimal"
-        android:padding="8dp"
-        android:gravity="center"
-        android:textColor="#494949"
-        android:textColorHint="#C0C0C0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:fontFamily="@font/roboto"
-        android:text="Номер телефона"
-        android:textSize="14sp"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/editText_login_number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+    tools:context=".fragments.registration_fragments.InfoRegFragment">
 
     <ImageView
-        android:id="@+id/btn_returnMainPage"
+        android:id="@+id/btn_returnRegMainPage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -64,8 +17,88 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="136dp"
+        android:layout_marginBottom="60dp"
+        android:fontFamily="@font/roboto"
+        android:text="Регистрация"
+        android:textColor="@color/white"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editText_name"
+        android:layout_width="330dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="54dp"
+        android:layout_marginBottom="350dp"
+        android:background="@drawable/edit_text_rounded_background"
+        android:drawableStart="@drawable/edit_text_underline"
+        android:drawablePadding="8dp"
+        android:gravity="center"
+        android:inputType="text"
+        android:padding="8dp"
+        android:textColor="#494949"
+        android:textColorHint="#C0C0C0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/roboto"
+        android:text="Имя"
+        android:textSize="14sp"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/editText_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/editText_regNum"
+        android:layout_width="330dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="135dp"
+        android:layout_marginBottom="267dp"
+        android:background="@drawable/edit_text_rounded_background"
+        android:drawableStart="@drawable/edit_text_underline"
+        android:drawablePadding="8dp"
+        android:gravity="center"
+        android:hint="+996 000 00 00 00"
+        android:inputType="numberDecimal"
+        android:padding="8dp"
+        android:textColor="#494949"
+        android:textColorHint="#C0C0C0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/roboto"
+        android:text="Номер телефона"
+        android:textSize="14sp"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/editText_regNum"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_login_get_code"
+        android:id="@+id/btn_reg_get_code"
         android:layout_width="330dp"
         android:layout_height="50dp"
         android:layout_marginTop="32dp"
@@ -75,7 +108,6 @@
         android:enabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_login_number" />
-
+        app:layout_constraintTop_toBottomOf="@+id/editText_regNum" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

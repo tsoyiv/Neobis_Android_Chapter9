@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_startFragment_to_numbLoginFragment"
             app:destination="@id/numbLoginFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_infoRegFragment"
+            app:destination="@id/infoRegFragment" />
     </fragment>
     <fragment
         android:id="@+id/numbLoginFragment"
@@ -34,5 +37,26 @@
         <action
             android:id="@+id/action_codeLoginFragment_to_numbLoginFragment"
             app:destination="@id/numbLoginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoRegFragment"
+        android:name="com.example.neocafe.fragments.registration_fragments.InfoRegFragment"
+        android:label="fragment_info_reg"
+        tools:layout="@layout/fragment_info_reg" >
+        <action
+            android:id="@+id/action_infoRegFragment_to_startFragment"
+            app:destination="@id/startFragment" />
+        <action
+            android:id="@+id/action_infoRegFragment_to_regCodeFragment"
+            app:destination="@id/regCodeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/regCodeFragment"
+        android:name="com.example.neocafe.fragments.registration_fragments.RegCodeFragment"
+        android:label="fragment_reg_code"
+        tools:layout="@layout/fragment_reg_code" >
+        <action
+            android:id="@+id/action_regCodeFragment_to_infoRegFragment"
+            app:destination="@id/infoRegFragment" />
     </fragment>
 </navigation>
