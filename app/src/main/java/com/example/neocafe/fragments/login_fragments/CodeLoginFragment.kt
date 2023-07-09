@@ -1,20 +1,26 @@
 package com.example.neocafe.fragments.login_fragments
 
 import android.app.Dialog
+import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.chaos.view.PinView
 import com.example.neocafe.R
 import com.example.neocafe.databinding.FragmentCodeLoginBinding
 
 class CodeLoginFragment : Fragment() {
 
     private lateinit var binding: FragmentCodeLoginBinding
+    private lateinit var pinView: PinView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,6 +33,40 @@ class CodeLoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navigation()
+        pinViewImplementation()
+    }
+
+    private fun pinViewImplementation() {
+        pinView = binding.otpViewLogin
+        pinView.requestFocus()
+        val buttonFinish = binding.btnLoginFinish
+
+        val inputMethodManager =
+            requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.showSoftInput(pinView, InputMethodManager.SHOW_IMPLICIT)
+
+        pinView.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                // TODO: Input the logic to handle text changes in the PinView
+
+                val isValidPhoneNumber = pinView.text?.isNotEmpty()
+
+                if (isValidPhoneNumber != null) {
+                    buttonFinish.isEnabled = isValidPhoneNumber
+                }
+                if (isValidPhoneNumber == true) {
+                    buttonFinish.setBackgroundResource(R.drawable.btn_active)
+                } else {
+                    buttonFinish.setBackgroundResource(R.drawable.btn_not_active)
+                }
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+            }
+        })
     }
 
     private fun navigation() {
