@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/imageback"
-    tools:context=".fragments.registration_fragments.InfoRegFragment">
+    tools:context=".fragments.registration_fragments.RegDataFragment">
 
     <ImageView
-        android:id="@+id/btn_returnRegMainPage"
+        android:id="@+id/btn_returnIngoReg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -18,11 +18,25 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/skipData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="20dp"
+        android:text="Пропустить"
+        android:textColor="@color/white"
+        android:clickable="true"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/roboto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="136dp"
-        android:layout_marginBottom="60dp"
         android:fontFamily="@font/roboto"
         android:text="Регистрация"
         android:textColor="@color/white"
@@ -33,51 +47,34 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txt_name"
-        android:layout_width="wrap_content"
+        android:id="@+id/textView8"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        android:fontFamily="@font/roboto"
-        android:text="Имя"
-        android:textColor="@color/white"
+        android:layout_marginTop="10dp"
+        android:text="Введите дату рожденя для дaльнейшего\nначисления бонусов"
         android:textSize="14sp"
+        android:textColor="@color/white"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    <EditText
-        android:id="@+id/editText_name"
-        android:layout_width="330dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/edit_text_rounded_background"
-        android:drawableStart="@drawable/edit_text_underline"
-        android:drawablePadding="8dp"
-        android:gravity="center"
-        android:inputType="text"
-        android:padding="8dp"
-        android:textColor="#494949"
-        android:textColorHint="#C0C0C0"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_name" />
-
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/roboto"
-        android:text="Номер телефона"
+        android:text="Дата рождения"
         android:textColor="@color/white"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_name" />
-
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <EditText
-        android:id="@+id/editText_regNum"
+        android:id="@+id/editText_data"
         android:layout_width="330dp"
         android:layout_height="40dp"
         android:layout_marginTop="5dp"
@@ -85,25 +82,24 @@
         android:drawableStart="@drawable/edit_text_underline"
         android:drawablePadding="8dp"
         android:gravity="center"
-        android:hint="+996 000 00 00 00"
-        android:inputType="numberDecimal"
-        android:textColor="#494949"
+        android:inputType="date"
+        android:padding="8dp"
+        android:textColor="#000000"
         android:textColorHint="#C0C0C0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_reg_get_code"
+        android:id="@+id/btn_reg_finish"
         android:layout_width="330dp"
         android:layout_height="50dp"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/btn_not_active"
-        android:enabled="false"
-        android:text="Далее"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/btn_active"
+        android:text="Войти"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_regNum" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_data" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -58,5 +58,17 @@
         <action
             android:id="@+id/action_regCodeFragment_to_infoRegFragment"
             app:destination="@id/infoRegFragment" />
+        <action
+            android:id="@+id/action_regCodeFragment_to_regDataFragment"
+            app:destination="@id/regDataFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/regDataFragment"
+        android:name="com.example.neocafe.fragments.registration_fragments.RegDataFragment"
+        android:label="fragment_reg_data"
+        tools:layout="@layout/fragment_reg_data" >
+        <action
+            android:id="@+id/action_regDataFragment_to_infoRegFragment"
+            app:destination="@id/infoRegFragment" />
     </fragment>
 </navigation>
