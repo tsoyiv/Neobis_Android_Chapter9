@@ -5,12 +5,14 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.chaos.view.PinView
@@ -21,6 +23,9 @@ class CodeLoginFragment : Fragment() {
 
     private lateinit var binding: FragmentCodeLoginBinding
     private lateinit var pinView: PinView
+    private lateinit var resendButton: AppCompatButton
+    private var timer: CountDownTimer? = null
+    private val timerDuration: Long = 30000
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,6 +39,39 @@ class CodeLoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         navigation()
         pinViewImplementation()
+        resendRequest()
+    }
+
+    private fun resendRequest() {
+        resendButton = binding.resendCodeLogin
+        resendButton.setOnClickListener {
+            startTimer()
+            resendButton.text = "Отправить повторно"
+            resendButton.setBackgroundResource(R.drawable.btn_not_active)
+            resendButton.isEnabled = false // Disable button during timer
+        }
+    }
+    private fun startTimer() {
+        timer?.cancel()
+
+        timer = object : CountDownTimer(timerDuration, 1000) {
+            override fun onTick(millisUntilFinished: Long) {
+                val secondsLeft = millisUntilFinished / 1000
+                resendButton.text = "Отправить повторно ($secondsLeft)"
+            }
+
+            override fun onFinish() {
+                resendButton.text = "Отправить повторно"
+                resendButton.setBackgroundResource(R.drawable.btn_active)
+                resendButton.isEnabled = true
+            }
+        }
+
+        timer?.start()
+    }
+    override fun onDestroy() {
+        super.onDestroy()
+        timer?.cancel()
     }
 
     private fun pinViewImplementation() {
